@@ -2,19 +2,70 @@ namespace MovieTicketBookingSystem;
 
 public class Ticket
 {
-    public string MovieName;
+    private string _movieName;
     public Type Type;
     public SeatLocation Seat;
-    private decimal Price;
+    private decimal _price;
     private double DiscountAmount;
+
+    private static int ticketCounter = 0;
+
+    public int TicketId { get; }
+
+    public string MovieName
+    {
+        get 
+        {
+            return _movieName;
+        }
+        set
+        {
+            if (String.IsNullOrWhiteSpace(value))
+            {
+                Console.WriteLine("Movie Name cannot be neither Null nor Empty!");
+                return;
+            }
+
+            _movieName = value;
+        }
+    }
+    
+    public decimal Price
+    {
+        get 
+        {
+            return _price;
+        }
+        set
+        {
+            if (value < 0)
+            {
+                Console.WriteLine("Price cannot be smaller than 0!");
+                return;
+            }
+
+            _price = value;
+        }
+    }
+
+    public decimal PriceAfterTax => (_price + (_price * 0.14m));
     
     public Ticket(string movieName, Type type, SeatLocation seat, decimal price, double discountAmount)
     {
+        if (price < 0)
+        {
+            Console.WriteLine("Price cannot be smaller than 0!");
+            return;
+        }
+
         MovieName = movieName;
         Type = type;
         Seat = seat;
         Price = price;
         DiscountAmount = discountAmount;
+        
+        ticketCounter++;
+        TicketId = ticketCounter;
     }
     
     public Ticket(string movieName)
@@ -25,9 +76,6 @@ public class Ticket
     public Ticket()
     {
     }
-
-    public decimal CalcTotal(double taxPercent)
-        => (Price + (Price * (decimal)taxPercent));
 
     public void ApplyDiscount(double discountAmount)
     {
@@ -47,7 +95,7 @@ public class Ticket
         Console.WriteLine($"Type      : {Type}");
         Console.WriteLine($"Seat      : {Seat.Row}{Seat.Number}");
         Console.WriteLine($"Price     : {Price}");
-        Console.WriteLine($"Total (14% tax) : {CalcTotal(0.14)}");
+        Console.WriteLine($"Total (14% tax) : {PriceAfterTax}");
 
         if (DiscountAmount != 0)
         {
@@ -61,7 +109,10 @@ public class Ticket
             Console.WriteLine($"Type     : {Type}");
             Console.WriteLine($"Seat     : {Seat.Row}{Seat.Number}");
             Console.WriteLine($"Price    : {Price}");
-            Console.WriteLine($"Total (14% tax) : {CalcTotal(0.14)}");
+            Console.WriteLine($"Total (14% tax) : {PriceAfterTax}");
         }
     }
+
+    public static int GetTotalTicketsSold() 
+        => ticketCounter;
 }
