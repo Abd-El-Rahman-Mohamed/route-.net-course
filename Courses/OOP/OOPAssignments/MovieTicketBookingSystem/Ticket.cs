@@ -1,17 +1,24 @@
 namespace MovieTicketBookingSystem;
 
+/*
+    1. Create a base class Ticket with:
+*/
 public class Ticket
 {
     private string _movieName;
-    public Type Type;
-    public SeatLocation Seat;
     private decimal _price;
     private double DiscountAmount;
 
     private static int ticketCounter = 0;
 
+    /*
+     a. TicketId (int, read-only, auto-incremented)
+     */
     public int TicketId { get; }
 
+    /*
+     a. MovieName (string)
+     */
     public string MovieName
     {
         get 
@@ -30,6 +37,9 @@ public class Ticket
         }
     }
     
+    /*
+     a. Price (decimal, must be > 0)
+     */
     public decimal Price
     {
         get 
@@ -48,9 +58,12 @@ public class Ticket
         }
     }
 
+    /*
+     c. A computed property PriceAfterTax that returns the price with 14% tax.
+     */
     public decimal PriceAfterTax => (_price + (_price * 0.14m));
     
-    public Ticket(string movieName, Type type, SeatLocation seat, decimal price, double discountAmount)
+    public Ticket(string movieName, decimal price, double discountAmount)
     {
         if (price < 0)
         {
@@ -59,17 +72,23 @@ public class Ticket
         }
 
         MovieName = movieName;
-        Type = type;
-        Seat = seat;
         Price = price;
         DiscountAmount = discountAmount;
         
         ticketCounter++;
         TicketId = ticketCounter;
     }
+
+    /*
+     b. A constructor that takes movieName and price.
+     */
+    public Ticket(string movieName, decimal price)
+        : this(movieName, price, 0)
+    {
+    }
     
     public Ticket(string movieName)
-        : this(movieName, Type.Standard, new SeatLocation('A',1), 50m, 0)
+        : this(movieName, 50m, 0)
     {
     }
 
@@ -92,8 +111,6 @@ public class Ticket
         
         Console.WriteLine("===== Ticket Info =====");
         Console.WriteLine($"Movie     : {MovieName}");
-        Console.WriteLine($"Type      : {Type}");
-        Console.WriteLine($"Seat      : {Seat.Row}{Seat.Number}");
         Console.WriteLine($"Price     : {Price}");
         Console.WriteLine($"Total (14% tax) : {PriceAfterTax}");
 
@@ -106,13 +123,20 @@ public class Ticket
             ApplyDiscount(DiscountAmount);
             Console.WriteLine($"Discount After  : {DiscountAmount}");
             Console.WriteLine($"Movie    : {MovieName}");
-            Console.WriteLine($"Type     : {Type}");
-            Console.WriteLine($"Seat     : {Seat.Row}{Seat.Number}");
             Console.WriteLine($"Price    : {Price}");
             Console.WriteLine($"Total (14% tax) : {PriceAfterTax}");
         }
     }
 
-    public static int GetTotalTicketsSold() 
+    /*
+     e. A static int GetTotalTickets() method that returns the total number of tickets created.
+     */
+    public static int GetTotalTickets() 
         => ticketCounter;
+
+    /*
+     d. Override ToString() to return the ticket info.
+     */
+    public override string ToString()
+        => $"Movie Name: {MovieName}, Price: {Price}, TicketId: {TicketId}";
 }
