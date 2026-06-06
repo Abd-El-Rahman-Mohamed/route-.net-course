@@ -1,26 +1,10 @@
 namespace MovieTicketBookingSystem;
 
-/*
- 2. Create three child classes that inherit from Ticket
- */
-
-/*
- b. VIPTicket — adds LoungeAccess (bool) and ServiceFee (decimal) = 50.
- */
 public class VIPTicket : Ticket
 {
-    /*
-     b. adds LoungeAccess (bool)
-     */
     public bool LoungeAccess { get; set; }
-    /*
-     b. ServiceFee (decimal) = 50.
-     */
     public decimal ServiceFee { get; set; } = 50m;
     
-    /*
-     Each child class should override ToString() to include its own extra info.
-     */
     public override string ToString()
         => base.ToString() + $", LoungeAccess: {LoungeAccess}, ServiceFee: {ServiceFee}";
     
@@ -30,4 +14,9 @@ public class VIPTicket : Ticket
         LoungeAccess = loungeAccess;
         ServiceFee = serviceFee;
     }
+ 
+    // 2. In each child class, provide its own version of PrintTicket():
+    // b. VIPTicket — prints the base ticket info, LoungeAccess, and ServiceFee.
+    public override void PrintTicket()
+        => Console.WriteLine($"{TicketDetails()} | Lounge: {(LoungeAccess ? "Yes" : "No")} | Service Fee: {ServiceFee} EGP");
 }

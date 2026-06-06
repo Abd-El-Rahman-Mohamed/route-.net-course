@@ -1,5 +1,6 @@
 <Solution>
   <Project Path="Assignment1/Assignment1.csproj" />
   <Project Path="Assignment2/Assignment2.csproj" />
+  <Project Path="Assignment4/Assignment4.csproj" />
   <Project Path="MovieTicketBookingSystem/MovieTicketBookingSystem.csproj" />
 </Solution>

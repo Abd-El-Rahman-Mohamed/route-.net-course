@@ -1,22 +1,9 @@
 namespace MovieTicketBookingSystem;
 
-/*
- 2. Create three child classes that inherit from Ticket
- */
-
-/*
- a. StandardTicket — adds SeatNumber (string).
- */
 public class StandardTicket : Ticket
 {
-    /*
-     a. adds SeatNumber (string).
-     */
     public string SeatNumber { get; set; }
     
-    /*
-     Each child class should override ToString() to include its own extra info.
-     */
     public override string ToString()
         => base.ToString() + $", SeatNumber: {SeatNumber}";
 
@@ -25,4 +12,9 @@ public class StandardTicket : Ticket
     {
         SeatNumber = seatNumber;
     }
+
+    // 2. In each child class, provide its own version of PrintTicket():
+    // a. StandardTicket — prints the base ticket info and the SeatNumber.
+    public override void PrintTicket()
+        => Console.WriteLine($"{TicketDetails()} | Seat: {SeatNumber}");
 }

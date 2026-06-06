@@ -4,41 +4,41 @@ namespace MovieTicketBookingSystem;
 
 class Program
 {
-    /*
-     4. In Main, do the following:
-     */
+    // 5. In Main:
     static void Main(string[] args)
     {
         // a. Create a Cinema and open it.
         Cinema cinema = new Cinema();
         cinema.OpenCinema();
 
-        // b. Create one of each ticket type (hardcoded data) and add them to the Cinema.
+        // b. Create one StandardTicket, one VIPTicket, and one IMAXTicket.
         StandardTicket standardTicket = new StandardTicket("Inception", 120m, "A-5");
         VIPTicket vipTicket = new VIPTicket("Avengers", 200m, true, 50m);
         IMAXTicket imaxTicket = new IMAXTicket("Dune", 180m, false);
+
+        // c. Test both versions of SetPrice on one ticket.
+        Console.WriteLine("========= SetPrice Test ==========");
+        Console.WriteLine("Setting price directly: 150");
+        standardTicket.SetPrice(150m);
+        Console.WriteLine("Setting price with multiplier: 100 x 1.5 = 150");
+        standardTicket.SetPrice(100.00m, 1.5m);
 
         cinema.AddTicket(standardTicket);
         cinema.AddTicket(vipTicket);
         cinema.AddTicket(imaxTicket);
 
-        // c. Print all tickets.
+        Console.WriteLine();
+        
+        // d. Add all tickets to the Cinema and call PrintAllTickets().
         cinema.PrintAllTickets();
 
-        Console.WriteLine("========== Statistics ==========");
-        Console.WriteLine($"Total Tickets Created: {cinema.Count}");
+        // e. Call ProcessTicket() with one of the tickets.
+        Console.WriteLine("========= Process Single Ticket =========");
+        Cinema.ProcessTicket(vipTicket);
 
         Console.WriteLine();
         
-        Console.WriteLine($"Booking Ref 1: {BookingHelper.GenerateBookingReference()}");
-        Console.WriteLine($"Booking Ref 2: {BookingHelper.GenerateBookingReference()}");
-
-        Console.WriteLine();
-
-        Console.WriteLine($"Group Discount (5 x 100 EGP): {BookingHelper.CalcGroupDiscount(5, 100)} (10% off)");
-
-        // d. Close the Cinema.
+        // f. Close the Cinema.
         cinema.CloseCinema();
-        
     }
 }

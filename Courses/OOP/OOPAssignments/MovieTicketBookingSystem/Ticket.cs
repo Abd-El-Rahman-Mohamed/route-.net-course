@@ -1,8 +1,6 @@
 namespace MovieTicketBookingSystem;
 
-/*
-    1. Create a base class Ticket with:
-*/
+// 1. Refactor the base Ticket class:
 public class Ticket
 {
     private string _movieName;
@@ -11,14 +9,8 @@ public class Ticket
 
     private static int ticketCounter = 0;
 
-    /*
-     a. TicketId (int, read-only, auto-incremented)
-     */
     public int TicketId { get; }
 
-    /*
-     a. MovieName (string)
-     */
     public string MovieName
     {
         get 
@@ -37,9 +29,6 @@ public class Ticket
         }
     }
     
-    /*
-     a. Price (decimal, must be > 0)
-     */
     public decimal Price
     {
         get 
@@ -58,9 +47,6 @@ public class Ticket
         }
     }
 
-    /*
-     c. A computed property PriceAfterTax that returns the price with 14% tax.
-     */
     public decimal PriceAfterTax => (_price + (_price * 0.14m));
     
     public Ticket(string movieName, decimal price, double discountAmount)
@@ -79,9 +65,6 @@ public class Ticket
         TicketId = ticketCounter;
     }
 
-    /*
-     b. A constructor that takes movieName and price.
-     */
     public Ticket(string movieName, decimal price)
         : this(movieName, price, 0)
     {
@@ -95,6 +78,17 @@ public class Ticket
     public Ticket()
     {
     }
+    
+    public decimal GetPrice()
+        => _price;
+    
+    // b. Add two versions of a SetPrice method — one that takes a decimal (sets price directly) and one that
+    // takes a decimal base price and a decimal multiplier (sets price = base × multiplier).
+    public void SetPrice(decimal price)
+        => _price = price;
+    
+    public void SetPrice(decimal decimalBase, decimal multiplier)
+        => _price = decimalBase * multiplier;
 
     public void ApplyDiscount(double discountAmount)
     {
@@ -105,38 +99,17 @@ public class Ticket
         }
     }
 
-    public void PrintTicket()
-    {
-        Console.WriteLine();
-        
-        Console.WriteLine("===== Ticket Info =====");
-        Console.WriteLine($"Movie     : {MovieName}");
-        Console.WriteLine($"Price     : {Price}");
-        Console.WriteLine($"Total (14% tax) : {PriceAfterTax}");
+    protected string TicketDetails()
+        => $" Ticket #{TicketId} | {MovieName} | Price: {Price:0.00} EGP | After Tax: {PriceAfterTax:0.00} EGP";
 
-        if (DiscountAmount != 0)
-        {
-            Console.WriteLine();
+    // a. Add a PrintTicket() method that prints: TicketId, MovieName, Price, PriceAfterTax. Child classes
+    // should be able to provide their own version of this method.
+    public virtual void PrintTicket()
+        => Console.WriteLine(TicketDetails());
 
-            Console.WriteLine("===== After Discount =====");
-            Console.WriteLine($"Discount Before : {DiscountAmount}");
-            ApplyDiscount(DiscountAmount);
-            Console.WriteLine($"Discount After  : {DiscountAmount}");
-            Console.WriteLine($"Movie    : {MovieName}");
-            Console.WriteLine($"Price    : {Price}");
-            Console.WriteLine($"Total (14% tax) : {PriceAfterTax}");
-        }
-    }
-
-    /*
-     e. A static int GetTotalTickets() method that returns the total number of tickets created.
-     */
     public static int GetTotalTickets() 
         => ticketCounter;
 
-    /*
-     d. Override ToString() to return the ticket info.
-     */
     public override string ToString()
         => $"Movie Name: {MovieName}, Price: {Price}, TicketId: {TicketId}";
 }
