@@ -1,9 +1,9 @@
 namespace MovieTicketBookingSystem;
 
-// 1. Refactor the base Ticket class:
-public class Ticket
+public class Ticket : IBookingAndCancellation, IPrintable
 {
     private string _movieName;
+    private BookingStatus _ticketStatus;
     private decimal _price;
     private double DiscountAmount;
 
@@ -49,6 +49,37 @@ public class Ticket
 
     public decimal PriceAfterTax => (_price + (_price * 0.14m));
     
+    public BookingStatus TicketStatus
+    {
+        get 
+        {
+            return _ticketStatus;
+        }
+        set
+        {
+            /*
+             A ticket can only be booked once (trying to book an already-booked ticket should fail)
+             */
+            if (value == BookingStatus.Booked && _ticketStatus == BookingStatus.Booked)
+            {
+                Console.WriteLine("A ticket can only be booked once");
+                return;
+            }
+
+            /*
+             and can only be cancelled if it is currently booked (trying to cancel a non-booked ticket should 
+             fail)
+             */
+            if (value == BookingStatus.Cancelled && _ticketStatus != BookingStatus.Booked)
+            {
+                Console.WriteLine("A ticket can only be cancelled if it is currently booked");
+                return;
+            }
+            
+            _ticketStatus = value;
+        }
+    }
+    
     public Ticket(string movieName, decimal price, double discountAmount)
     {
         if (price < 0)
@@ -82,8 +113,6 @@ public class Ticket
     public decimal GetPrice()
         => _price;
     
-    // b. Add two versions of a SetPrice method — one that takes a decimal (sets price directly) and one that
-    // takes a decimal base price and a decimal multiplier (sets price = base × multiplier).
     public void SetPrice(decimal price)
         => _price = price;
     
@@ -100,11 +129,10 @@ public class Ticket
     }
 
     protected string TicketDetails()
-        => $" Ticket #{TicketId} | {MovieName} | Price: {Price:0.00} EGP | After Tax: {PriceAfterTax:0.00} EGP";
+        // The booking status should appear when the ticket is printed.
+        => $"[Ticket #{TicketId}] {MovieName}";
 
-    // a. Add a PrintTicket() method that prints: TicketId, MovieName, Price, PriceAfterTax. Child classes
-    // should be able to provide their own version of this method.
-    public virtual void PrintTicket()
+    public void Print()
         => Console.WriteLine(TicketDetails());
 
     public static int GetTotalTickets() 

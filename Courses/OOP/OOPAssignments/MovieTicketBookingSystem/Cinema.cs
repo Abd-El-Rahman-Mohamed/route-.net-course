@@ -58,11 +58,9 @@ public class Cinema
         return true;
     }
 
-    // 3. In the Cinema class, update PrintAllTickets() so it loops through the Ticket[] array and calls
-    // PrintTicket() on each one.
     public void PrintAllTickets()
     {
-        Console.WriteLine("========== All Tickets ==========");
+        Console.WriteLine("--- All Tickets ---");
         for (int i = 0; i < _count; i++)
         {
             ProcessTicket(_tickets[i]);
@@ -74,22 +72,21 @@ public class Cinema
     public void OpenCinema()
     {
         CinemaProjector.StarProjector();
-        Console.WriteLine("========== Cinema Opened ==========");
-        Console.WriteLine("Projector started.");
+        Console.WriteLine("=== Cinema Opened ===");
         Console.WriteLine();
     }
     
     public void CloseCinema()
     {
         CinemaProjector.StopProjector();
-        Console.WriteLine("========== Cinema Closed ==========");
-        Console.WriteLine("Projector stopped.");
+        Console.WriteLine("=== Cinema Closed ===");
     }
-
-    // 4. Create a static method ProcessTicket(Ticket t) that takes any Ticket and calls PrintTicket() on it.
-    public static void ProcessTicket(Ticket t)
+    
+    // The Cinema should also be able to print all its tickets using this contract.
+    public static void ProcessTicket(IPrintable printable)
     {
-        t.PrintTicket();
+        if (printable is not null)
+            printable.Print();
     }
 }
 

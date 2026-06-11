@@ -1,0 +1,174 @@
+Part 01 : Theoretical Questions
+
+Q1 : What is an interface in C#? Why do we use interfaces instead of depending on concrete classes directly? 
+Mention at least three benefits of using interfaces.
+A1 : Interface is a reference type component in C#, which is used to apply the concept of Abstraction, which 
+     is also considered a Contract, because when we implementing it for its usage, for example a class used 
+     named `Authorization` that implements the `IAuthorized` interface, then it must have the `IAuthorized` 
+     interface's all methods implemented.
+     
+     We use interface instead of depending on concrete classes if we:
+      - Want to apply the concept of the Abstraction to hide the complexity of the implementation.
+      - Or if we had a functions that has no default implementation like the `Area` function, there's no an 
+        absolute `Area` that can be applied on any shape, so we create `IShape` interface to make the `Area` 
+        method not implemented unless its implemented in the specific shape class.
+        
+     Benefitis of using interfaces:
+        - It applies the concept of Abstraction, so at the top level it hides the complexity of implementation.
+        - It is a contract that works to make the class to implement specific methods when it has a specific 
+            purpose.  
+        - It can have methods without implementation, while this is not allowed in Base Class while other Child
+            Class are inheriting them, like the problem of `Area()` and `Perimeter()` methods.
+        - It makes the testing and team work easier, because its Abstraction makes methods works with it instead 
+            of classes implementing it, so we can create a fake testing until the classes we want to work with   
+             is ready to be tested.
+             
+Q2 : Look at the following code and answer the questions below:
+```C#
+interface IEnglishSpeaker
+{
+    void Greet();
+}
+
+interface IArabicSpeaker
+{
+    void Greet();
+}
+
+class Translator : IEnglishSpeaker, IArabicSpeaker
+{
+    public void Greet()
+    {
+        Console.WriteLine("Hello / Ahlan");
+    }
+}
+```
+a) What is the problem with this design? 
+    Both interfaces have a method called Greet() — how does the class handle it currently?
+A2, a: It's that if we create an object of `Translator` class referenced by a reference of `IEnglishSpeaker` 
+        interface, we will not find the `Greet()` version of `IEnglishSpeaker` interface, also for 
+        `IArabicSpeaker` interface, if we create an object of `Translator` class referenced by a reference of 
+        `IArabicSpeaker` interface, we will not find the `Greet()` version of `IArabicSpeaker` interface.                                                                                               
+    
+    How does the class handle it currently?
+    The class handle it currently as that if we create an object of `Translator` class using a reference  
+     of `Translator` class, we only access only one `Greet()` method, but the problem here is that it means 
+     that the `Greet()` method is related to the `Translator` and neither related to `IEnglishSpeaker` nor 
+     `IArabicSpeaker`.
+     
+    
+    
+b) How would you fix this so IEnglishSpeaker.Greet() says "Hello" and IArabicSpeaker.Greet() says "Ahlan"? 
+What is this technique called?
+A2, b:
+    How would you fix this:
+    ```C#
+    interface IEnglishSpeaker
+    {
+        void Greet();
+    }
+    
+    interface IArabicSpeaker
+    {
+        void Greet();
+    }
+    
+    class Translator : IEnglishSpeaker, IArabicSpeaker
+    {
+        void IEnglishSpeaker.Greet()
+        {
+            Console.WriteLine("Hello");
+        }
+        
+        void IArabicSpeaker.Greet()
+        {
+            Console.WriteLine("Ahlan");
+        }
+    }
+    ```
+    with removing the access modifier, which should be removed in the Explicit Interface Implementation.
+    
+    So, if we want to use the `Greet()` version of `IEnglishSpeaker` we create the object from `Translator` 
+    class and the reference from `IEnglishSpeaker` interface, and the same for `IArabicSpeaker` if we want 
+    to use the `Greet()` version of `IArabicSpeaker` we create the object from `Translator` class and the 
+    reference from `IEnglishSpeaker` interface.
+    
+    What is this technique called?
+    (After research)This technique is called Explicit Interface Implementation.
+    
+c) After applying your fix, can you call Greet() directly on a Translator object (e.g. translator.Greet())? 
+    Why or why not? 
+    How do you call each version?
+A2, c:
+    If the Translator object is created using a reference of Translator class, then we cannot call it because
+    the is explicitly assigned to `IArabicSpeaker` and `IEnglishSpeaker` and not for `Translator` class itself.
+    
+    How do you call each version?
+    We call each version, by creating the reference for the one we want each version, if we want the version of
+    `IEnglishSpeaker` we create an object of `Translator` class and a reference of `IEnglishSpeaker` interface,
+    such as:
+    ```C#
+            IEnglishSpeaker englishTranslator = new Translator();
+            englishTranslator.Greet();
+    ``` 
+    
+    If we want the version of `IArabicSpeaker` we create an object of `Translator` class and a reference of 
+    `IArabicSpeaker` interface,
+    such as:
+    ```C#
+            IArabicSpeaker arabicTranslator = new Translator();
+            arabicTranslator.Greet();
+    ``` 
+   
+ Q3 : Explain the difference between a shallow copy and a deep copy. When would you use each one? 
+ What is the risk of using a shallow copy when the object has reference-type fields?
+ 
+ A3: The difference between Shallow Copy and Deep Copy, is that Shallow Copy copies the first level of the 
+ object details meaning it copies value types and if there's a reference type field, it copies its reference 
+ not its details.
+ While in Deep Copy, the nested details is copied rather than its references.
+ 
+ When would you use each one?
+ Shallow Copy can be used when it's not important to have my own version of objects that's contained in the 
+ object I want to copy, so I will copy its reference instead of creating my version of object and copying the 
+ values/details into my new created object.
+ While Deep Copy is the opposite, so it can be used when it's needed to have my own version of nested objects 
+ that's contained in the object I am copying, so I will copy its values into my newly created version of 
+ object instead of copying its reference. 
+ 
+ What is the risk of using a shallow copy when the object has reference-type fields?
+ The risk is that if the first object has a reference type and I copy it in the second object, then I change 
+ a value in the second object's copied object, then it will also be changed in the first object's object 
+ because the first and second objects are referring to the same object, while this doesn't happen in Strings, 
+ because Strings are immutable so a new object of a string is created when changing its content.
+ 
+ Q4 : Look at the following code and determine the output. Explain why.
+ ```C#
+ class Department { public string Name; }
+ class Employee
+ {
+     public string Title;
+     public Department Dept;
+     public Employee ShallowCopy() => (Employee)this.MemberwiseClone();
+ }
+ 
+ var e1 = new Employee { Title = "Dev", Dept = new Department { Name = "IT" } };
+ var e2 = e1.ShallowCopy();
+ e2.Title = "QA";
+ e2.Dept.Name = "Testing";
+ 
+ Console.WriteLine($"{e1.Title} - {e1.Dept.Name}");
+ Console.WriteLine($"{e2.Title} - {e2.Dept.Name}");
+ ```
+ 
+A4: Output will be:
+```
+Dev - IT
+QA - Testing
+```
+It's because as we said that String are immutable so every changes creates a new object of String with the 
+new content, so here both of `Title` and `Dept.Name` are strings and both were modified so both of `e1` 
+and `e2` objects will have their version of the `Title` and `Dept.Name` string fields.
+    
+⚠ I am using the coding blocks (```) in Mark Down because I like referring to code like this method, while 
+it's not copied from any AI model.

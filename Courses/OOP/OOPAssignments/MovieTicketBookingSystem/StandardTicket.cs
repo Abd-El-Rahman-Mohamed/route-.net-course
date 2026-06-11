@@ -1,6 +1,9 @@
 namespace MovieTicketBookingSystem;
 
-public class StandardTicket : Ticket
+/*
+    All ticket types (Standard, VIP, IMAX) should follow this contract.
+*/
+public class StandardTicket : Ticket, IPrintable
 {
     public string SeatNumber { get; set; }
     
@@ -13,8 +16,10 @@ public class StandardTicket : Ticket
         SeatNumber = seatNumber;
     }
 
-    // 2. In each child class, provide its own version of PrintTicket():
-    // a. StandardTicket — prints the base ticket info and the SeatNumber.
-    public override void PrintTicket()
-        => Console.WriteLine($"{TicketDetails()} | Seat: {SeatNumber}");
+    /*
+        All ticket types (Standard, VIP, IMAX) should follow this contract,
+        and each one should print its own specific details.
+    */
+    public void Print()
+        => Console.WriteLine($"{TicketDetails()} | Standard | Seat: {SeatNumber} | Price: {Price} | After Tax: {PriceAfterTax:0.0} | Booked: {(TicketStatus == BookingStatus.Booked ? "Yes" : "No")}");
 }
