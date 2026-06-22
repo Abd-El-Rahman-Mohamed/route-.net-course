@@ -1,0 +1,107 @@
+Part 01 : Theoretical Questions
+
+Q1 : What is abstraction in OOP? How is it different from encapsulation? Give a real-world example (not from the 
+session) that shows the difference between the two.
+A1: Abstraction is an OOP concept whose goal is to hide the complexity of how the things are done, and it 
+ focuses on what the components do rather than how they do it.
+
+ It differs than Encapsulation because of:
+ 1. Abstraction hides the complexity,           Encapsulation hides the data
+ 2. Abstraction concern is simplification.      Encapsulation main concern is security by data protecting.
+ 3. Abstraction is considered in the            Encapsulation is applied in the implementation level.
+     Design level. 
+
+ A real-world example for Abstraction can be the Power Button of the Laptop which the focus when it's clicked 
+ is what it does and its the goal rather than how it turns on the laptop.
+ So it hides the complexity rather than hiding the data or protecting it.
+ A real-world example for Encapsulation is that a bank that we save money in it, we can get the money from it
+ and also we can set its value by adding to it or taking money from it while the money is encapsulated into an 
+ count to protect it which we can consider it as the data in our example.
+ 
+ 
+ 
+ Q2 : What is the difference between an abstract class and an interface? Give at least four differences. 
+ When would you choose one over the other?
+ 1. Abstract Class can have constructor and instance fields.    Interfaces can only have methods and static 
+                                                                 fields.
+ 2. Abstract Class can and cannot obligate child classes to     Interfaces obligate the class that implementing 
+     have its own implemented version of a method using          it to have its own implemented version of the 
+     `abstract` keyword for the method.                          method.
+ 3. While using abstract classes, there's no multiple           But While Interfaces, multiple interface can be 
+     inheritance.                                                implemented.
+ 4. Abstract Class can be used when I want to create class      While interface can be more suitable to be used 
+     but with a method that I want the child classes to have     when representing a capability for classes that
+     its own implemented version of it, and also there's data    implements it.
+     to be inherited. 
+ 
+ We choose Abstract class if there are some methods that have implementation the child class can use and may 
+  not override the virtual method and also when there's data to be inherited.
+  
+ While we choose Interface over Abstract Class if we want to represent a capability which the classes will have
+  and also to represent behaviors that can be initially doesn't have a default, because originally methods in 
+  Interfaces doesn't have implementations and also when there's no data to be inherited because Interfaces 
+  doesn't have fields.
+  
+  
+ 
+ Q3 : Look at the following code and answer the questions below:
+ a) Can you write: Appliance a = new Appliance("LG"); ? Why or why not?
+ a) Answer: No, because Abstract classes cannot be instantiated.
+ 
+ b) What is the difference between the three methods: PowerConsumption(), Status(), and Label()? Why did the 
+ designer make each one abstract, virtual, or concrete?
+ b) Answer:
+ - The method of `PowerConsumption()` must be implemented in the child classes.
+ - The method of `Status()` can be implemented and can be not in the child classes.
+ - The method of `Label()` can only be hidden by the child classes if they want to have its own implementation 
+    version of it.
+    
+ - The `abstract` keyword is used to obligate the child classes to implement the version in their classes.
+ - The `virtual` keyword is the give the child classes the ability to override the method and to give them the 
+    option to implement it in their classes or not.
+ - The concrete way is to apply the static polymorphism concept.
+ 
+ c) If you call Status() on a Toaster object, what will it return? Why?
+ c) Answer:
+ It will return `Standby`, because the Toaster object doesn't override the `Status()` method so it will run 
+ the one inheriting from the base class.
+ 
+ 
+ 
+ Q4 : Look at the following code and answer the questions below:
+ a) What is a partial class? Why would a developer split Calculator into two files?
+ a) Answer: It's a class written in many files but when compiling these files are combined to construct the 
+    only one class.
+    A developer can split the Calculator into two files as an organizational consideration.
+    In our case the developer splitted the Calculator into two files to make the main data and methods in one 
+    class and the logging operations in another class.
+ 
+ b) What is a partial method? What happens if the OnCalculated() implementation in Calculator.Logging.cs 
+ is deleted — will the code still compile? Why?
+ b) Answer: A partial method is a method whose declaration is written into a file and its implementation is 
+  written into another file.
+  The code still compile because it will skip running the `OnCalculated()` line when it runs the `Add()` method.
+  
+ c) What is an extension method? What are the three rules for writing one?
+ c) Answer: An extension method is a method extended to a specific predefined type such as extending a function  
+ that counts the spaces in a string to the String type (class).
+ 
+ The three rules are:
+  1. The class whose the extension method must be `static`
+  2. The extension method must be `static`
+  3. The method must have this as parameter: `this [TypeThatWeExtend] value` to define which type we extend and 
+    to allow us to access the value that we runs the extension method.
+    
+ d) What will the following code print?
+ ```C#
+ Calculator calc = new Calculator();
+ double result = calc.Add(19.5, 0.5);
+ Console.WriteLine(result.ToCurrency());
+ ```
+ The output will be:
+ ```
+ Log: result = 20
+ 20.00
+ ```
+ 👉 I researched the pattern of `value:F2` to think what the output will be.    
+   

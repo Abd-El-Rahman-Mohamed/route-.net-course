@@ -1,0 +1,45 @@
+Q1 : What is the difference between static binding and dynamic binding? When does each one happen?
+A1: Static Binding binds the method to the base class method and chooses the base class method to be run 
+    rather than the child hidden class.
+    It can be called Early Binding also, and it works in the Compile Time.
+    
+    Dynamic Binding binds the method to the child class method and chooses the child class method to be run 
+    rather than the base class method.
+    It can be called Late Binding also, and it works in the Runtime Time at which it select which method will 
+     be invoked.
+    
+    Static Binding happens for Static Polymorphism where there's a method hiding done by the child class.
+    While Dynamic Binding happens for Dynamic Polymorphism where three conditions are met:
+        1. The reference is from the parent class and the object is from the child class
+        2. The `virtual` keyword is assigned to the parent class method
+        3. The `override` keyword is assigned to the child class method. 
+
+
+
+Q2: What is the difference between method overloading and method overriding?
+A2: Method Overloading can be used to do Early/Static Binding in Static Polymorphism at the Compile Time   
+    which is done by changing one of these:
+     - Number of Parameters
+     - Type of Parameters
+     - Order of Parameters
+    while it doesn't occur by changing the returning type.
+    It also works for Method Hiding rather which can may sometimes bad because it can result to inaccurate or 
+     unexpected behaviors.
+    
+    Method Overriding can be used to do Late/Dynamic Binding in Dynamic Polymorphism at the Runtime Time to  
+    help in selecting which method will be ran the one of the parent or the one of the child.
+    
+    It's done using `virtual` keyword to be beside the parent class method and `override` when overriding the  
+    method in the child class.
+    
+    It solves the problem of Method Hiding, because `virtual` and `override` works in another way than the 
+    `new` or hiding methods in general.
+
+
+
+Q3: What keywords are used for Method Overriding? What does each one mean ?
+A3: As I mentioned in the previous question 👇
+    1. `virtual` -> At the parent class method, which means that the class can be overrode to have another 
+        implementation in the child class.
+    2. `override` -> At the child class method, which means that we are defining another implementation to the 
+        child class method instead of hiding it.
