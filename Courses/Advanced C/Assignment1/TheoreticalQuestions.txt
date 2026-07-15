@@ -1,0 +1,81 @@
+Q1: What is a generic class? Why use generics?
+A1: Generic Class is a class that have a Genric Property or a Generic Field, then we assign it as a Generic to 
+    allow making these properties and fields generic.
+    We use Generics as a placeholder to have the specified later type to limit the Code Redundancy and Improve
+    code reusability.
+    We also use Generics rather than Object to allow us to make limitations on the Generics using the `where` 
+    keyword for types like a class or a struct for example, and also to limit the Boxing/Unboxing operations.
+    
+Q3:What are multiple type parameters-? Write Pair<TKey, TValue>
+A3: Multiple type parameters are when a method takes multiple Generic parameters and it allows the first 
+ parameter to be of a Generic Type and the other from other Generic Type which doesn't require to be the same as
+ the first parameter's Generic Type.
+ 
+Q4: What is a generic method? Write Swap<T> method.
+A4: A Generic Method is a method that takes a Generic Type parameters.
+
+Q6: What is a generic interface? Write IRepository<T>. 
+A6: It's an interface that can contain generic methods or methods that returns a Generic Type, it can also 
+ contain properties or static fields with generic types.
+ 
+Q7: What is the 'struct' constraint? Write an example.
+A7: It's a constraint that can be written to obligate the Generic Type to be a struct only.
+
+Q8: What is the 'class' constraint? Write an example.
+A8: A class constraint ensures that the Generic Type (T) must be a Class.
+
+Q9: What is the 'new()' constraint? Write an example
+A9: It's a constraint that ensures that the Generic Type is a class that has a default constructor.
+
+Q10: What is the interface constraint? Write an example.
+A10: It's a constraint used to ensure that the Generic Type is implementing a specific interface. 
+
+Q11: What is the base class constraint? Write an example.
+A11: A base class constraint ensures that the Generic Type is a specific class or child of it.
+
+Q12: How do you apply multiple constraints? Write an example
+A12: We can apply multiple constraints to the Generic Type but it must follow a specific order if multiple 
+    constraints are applied:
+    1. If T is Class or Struct
+    2. The Base class
+    3. Interface Constraint
+    4. `new()` constraint
+    
+Q13: What does the 'default' keyword do in generics?
+A13: It returns the default value for the Generic Type, for example 0 if numerical, null if reference type, etc.
+
+Q15: What is covariance? Explain the 'out' keyword.
+A15: Covariance is assigning a Generic Object to a less specified reference.
+    `out` keyword is used to make the type parameter can only be used as a return type of methods and not as a
+    parameter.
+    
+Q16: What is contravariance? Explain the 'in' keyword.
+A16: Contravariance allows a generic interface to use a less derived type than originally specified.
+    `in` is used to take the Generic Type as only parameter and not to return it as a return type.
+    
+Q17: What is the difference between covariance and contravariance?
+    Covariance                                                              Contravariance
+    - It returns the Generic Type as return type only                       - It returns the Generic type as 
+        Cannot take it as a parameter.                                          return type.
+                                                                              While it cannot take it as input.
+                                                                              
+    - Its idea is to allow assigning a more specified Generic Type          - Its idea is to allow the Generic
+        to a less specified reference.                                          interface to use the more 
+                                                                                specified Generic Type.
+                                                                                
+    - It uses the `out` keyword                                             - It uses the `in` keyword
+    
+Q18: How do static members work in generic types?
+A18: It works for each Generic Type separated, for example GenericClass<int> and GenericClass<string>, each one
+    has its own list of static items, and its own `_counter` static field.
+    
+Q19: How can you inherit from a generic class?
+A19: We can inherit from a generic class when we assign the Generic Type to the Generic Class, for example 
+     `Repository<T>` generic class which contains all the properties and methods a Repository of an Entity can 
+     need like a List, `Add()`, `Delete()`, `GetAll()`, and `GetById()` methods.
+    Then if a `Student` wants to inherit it, then it inherits it using a new class called `StudentRepo` which 
+     will inherits the `Repository` with the Generic Type of `Student`.
+     
+Q20: Complete Exercise - Create a generic Cache<TKey, TValue>with Add, Get, Remove, Contains, and expiration support.
+ 
+        
