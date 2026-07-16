@@ -1,0 +1,14 @@
+C:\Users\HP\RiderProjects\AdvancedCSharp\ShopMaster\bin\Debug\net10.0\ShopMaster.exe
+C:\Users\HP\RiderProjects\AdvancedCSharp\ShopMaster\bin\Debug\net10.0\ShopMaster.deps.json
+C:\Users\HP\RiderProjects\AdvancedCSharp\ShopMaster\bin\Debug\net10.0\ShopMaster.runtimeconfig.json
+C:\Users\HP\RiderProjects\AdvancedCSharp\ShopMaster\bin\Debug\net10.0\ShopMaster.dll
+C:\Users\HP\RiderProjects\AdvancedCSharp\ShopMaster\bin\Debug\net10.0\ShopMaster.pdb
+C:\Users\HP\RiderProjects\AdvancedCSharp\ShopMaster\obj\Debug\net10.0\ShopMaster.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\HP\RiderProjects\AdvancedCSharp\ShopMaster\obj\Debug\net10.0\ShopMaster.AssemblyInfoInputs.cache
+C:\Users\HP\RiderProjects\AdvancedCSharp\ShopMaster\obj\Debug\net10.0\ShopMaster.AssemblyInfo.cs
+C:\Users\HP\RiderProjects\AdvancedCSharp\ShopMaster\obj\Debug\net10.0\ShopMaster.csproj.CoreCompileInputs.cache
+C:\Users\HP\RiderProjects\AdvancedCSharp\ShopMaster\obj\Debug\net10.0\ShopMaster.dll
+C:\Users\HP\RiderProjects\AdvancedCSharp\ShopMaster\obj\Debug\net10.0\refint\ShopMaster.dll
+C:\Users\HP\RiderProjects\AdvancedCSharp\ShopMaster\obj\Debug\net10.0\ShopMaster.pdb
+C:\Users\HP\RiderProjects\AdvancedCSharp\ShopMaster\obj\Debug\net10.0\ShopMaster.genruntimeconfig.cache
+C:\Users\HP\RiderProjects\AdvancedCSharp\ShopMaster\obj\Debug\net10.0\ref\ShopMaster.dll
