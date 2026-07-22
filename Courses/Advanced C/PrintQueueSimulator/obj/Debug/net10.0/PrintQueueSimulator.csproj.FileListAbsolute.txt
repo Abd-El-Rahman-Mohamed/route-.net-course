@@ -1,0 +1,14 @@
+C:\Users\HP\RiderProjects\AdvancedCSharp\PrintQueueSimulator\bin\Debug\net10.0\PrintQueueSimulator.exe
+C:\Users\HP\RiderProjects\AdvancedCSharp\PrintQueueSimulator\bin\Debug\net10.0\PrintQueueSimulator.deps.json
+C:\Users\HP\RiderProjects\AdvancedCSharp\PrintQueueSimulator\bin\Debug\net10.0\PrintQueueSimulator.runtimeconfig.json
+C:\Users\HP\RiderProjects\AdvancedCSharp\PrintQueueSimulator\bin\Debug\net10.0\PrintQueueSimulator.dll
+C:\Users\HP\RiderProjects\AdvancedCSharp\PrintQueueSimulator\bin\Debug\net10.0\PrintQueueSimulator.pdb
+C:\Users\HP\RiderProjects\AdvancedCSharp\PrintQueueSimulator\obj\Debug\net10.0\PrintQueueSimulator.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\HP\RiderProjects\AdvancedCSharp\PrintQueueSimulator\obj\Debug\net10.0\PrintQueueSimulator.AssemblyInfoInputs.cache
+C:\Users\HP\RiderProjects\AdvancedCSharp\PrintQueueSimulator\obj\Debug\net10.0\PrintQueueSimulator.AssemblyInfo.cs
+C:\Users\HP\RiderProjects\AdvancedCSharp\PrintQueueSimulator\obj\Debug\net10.0\PrintQueueSimulator.csproj.CoreCompileInputs.cache
+C:\Users\HP\RiderProjects\AdvancedCSharp\PrintQueueSimulator\obj\Debug\net10.0\PrintQueueSimulator.dll
+C:\Users\HP\RiderProjects\AdvancedCSharp\PrintQueueSimulator\obj\Debug\net10.0\refint\PrintQueueSimulator.dll
+C:\Users\HP\RiderProjects\AdvancedCSharp\PrintQueueSimulator\obj\Debug\net10.0\PrintQueueSimulator.pdb
+C:\Users\HP\RiderProjects\AdvancedCSharp\PrintQueueSimulator\obj\Debug\net10.0\PrintQueueSimulator.genruntimeconfig.cache
+C:\Users\HP\RiderProjects\AdvancedCSharp\PrintQueueSimulator\obj\Debug\net10.0\ref\PrintQueueSimulator.dll

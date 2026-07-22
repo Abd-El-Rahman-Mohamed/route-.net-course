@@ -1,0 +1,14 @@
+C:\Users\HP\RiderProjects\AdvancedCSharp\Leaderboard\bin\Debug\net10.0\Leaderboard.exe
+C:\Users\HP\RiderProjects\AdvancedCSharp\Leaderboard\bin\Debug\net10.0\Leaderboard.deps.json
+C:\Users\HP\RiderProjects\AdvancedCSharp\Leaderboard\bin\Debug\net10.0\Leaderboard.runtimeconfig.json
+C:\Users\HP\RiderProjects\AdvancedCSharp\Leaderboard\bin\Debug\net10.0\Leaderboard.dll
+C:\Users\HP\RiderProjects\AdvancedCSharp\Leaderboard\bin\Debug\net10.0\Leaderboard.pdb
+C:\Users\HP\RiderProjects\AdvancedCSharp\Leaderboard\obj\Debug\net10.0\Leaderboard.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\HP\RiderProjects\AdvancedCSharp\Leaderboard\obj\Debug\net10.0\Leaderboard.AssemblyInfoInputs.cache
+C:\Users\HP\RiderProjects\AdvancedCSharp\Leaderboard\obj\Debug\net10.0\Leaderboard.AssemblyInfo.cs
+C:\Users\HP\RiderProjects\AdvancedCSharp\Leaderboard\obj\Debug\net10.0\Leaderboard.csproj.CoreCompileInputs.cache
+C:\Users\HP\RiderProjects\AdvancedCSharp\Leaderboard\obj\Debug\net10.0\Leaderboard.dll
+C:\Users\HP\RiderProjects\AdvancedCSharp\Leaderboard\obj\Debug\net10.0\refint\Leaderboard.dll
+C:\Users\HP\RiderProjects\AdvancedCSharp\Leaderboard\obj\Debug\net10.0\Leaderboard.pdb
+C:\Users\HP\RiderProjects\AdvancedCSharp\Leaderboard\obj\Debug\net10.0\Leaderboard.genruntimeconfig.cache
+C:\Users\HP\RiderProjects\AdvancedCSharp\Leaderboard\obj\Debug\net10.0\ref\Leaderboard.dll

@@ -1,0 +1,23 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v10.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v10.0": {
+      "PrintQueueSimulator/1.0.0": {
+        "runtime": {
+          "PrintQueueSimulator.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "PrintQueueSimulator/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}

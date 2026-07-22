@@ -1,0 +1,14 @@
+C:\Users\HP\RiderProjects\AdvancedCSharp\UniqueEmailValidator\bin\Debug\net10.0\UniqueEmailValidator.exe
+C:\Users\HP\RiderProjects\AdvancedCSharp\UniqueEmailValidator\bin\Debug\net10.0\UniqueEmailValidator.deps.json
+C:\Users\HP\RiderProjects\AdvancedCSharp\UniqueEmailValidator\bin\Debug\net10.0\UniqueEmailValidator.runtimeconfig.json
+C:\Users\HP\RiderProjects\AdvancedCSharp\UniqueEmailValidator\bin\Debug\net10.0\UniqueEmailValidator.dll
+C:\Users\HP\RiderProjects\AdvancedCSharp\UniqueEmailValidator\bin\Debug\net10.0\UniqueEmailValidator.pdb
+C:\Users\HP\RiderProjects\AdvancedCSharp\UniqueEmailValidator\obj\Debug\net10.0\UniqueEmailValidator.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\HP\RiderProjects\AdvancedCSharp\UniqueEmailValidator\obj\Debug\net10.0\UniqueEmailValidator.AssemblyInfoInputs.cache
+C:\Users\HP\RiderProjects\AdvancedCSharp\UniqueEmailValidator\obj\Debug\net10.0\UniqueEmailValidator.AssemblyInfo.cs
+C:\Users\HP\RiderProjects\AdvancedCSharp\UniqueEmailValidator\obj\Debug\net10.0\UniqueEmailValidator.csproj.CoreCompileInputs.cache
+C:\Users\HP\RiderProjects\AdvancedCSharp\UniqueEmailValidator\obj\Debug\net10.0\UniqueEmailValidator.dll
+C:\Users\HP\RiderProjects\AdvancedCSharp\UniqueEmailValidator\obj\Debug\net10.0\refint\UniqueEmailValidator.dll
+C:\Users\HP\RiderProjects\AdvancedCSharp\UniqueEmailValidator\obj\Debug\net10.0\UniqueEmailValidator.pdb
+C:\Users\HP\RiderProjects\AdvancedCSharp\UniqueEmailValidator\obj\Debug\net10.0\UniqueEmailValidator.genruntimeconfig.cache
+C:\Users\HP\RiderProjects\AdvancedCSharp\UniqueEmailValidator\obj\Debug\net10.0\ref\UniqueEmailValidator.dll
