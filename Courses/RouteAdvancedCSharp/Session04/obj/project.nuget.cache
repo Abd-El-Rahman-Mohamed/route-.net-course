@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "9+NaWDvJyPo=",
+  "success": true,
+  "projectFilePath": "/home/abdelrahmantechcs/Documents/route-.net-course/Courses/RouteAdvancedCSharp/Session04/Session04.csproj",
+  "expectedPackageFiles": [
+    "/home/abdelrahmantechcs/.nuget/packages/microsoft.aspnetcore.app.ref/10.0.10/microsoft.aspnetcore.app.ref.10.0.10.nupkg.sha512"
+  ],
+  "logs": []
+}
